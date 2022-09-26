@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://dbmp1mnx327ux"]
+
+[ext_resource type="Texture2D" uid="uid://gtqg685ble8f" path="res://img/center.png" id="1_3f031"]
+[ext_resource type="Script" path="res://scene/Center.cs" id="1_eyqt7"]
+[ext_resource type="Script" path="res://script/game.cs" id="1_v3fll"]
+[ext_resource type="Script" path="res://script/knife/knife_holder.cs" id="4_6g13x"]
+[ext_resource type="PackedScene" uid="uid://cf2tqigosbt7p" path="res://scene/knife/knife.tscn" id="4_cy1l0"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_1t1yw"]
+radius = 117.004
+
+[node name="game" type="Node2D" node_paths=PackedStringArray("knifeHolder")]
+script = ExtResource("1_v3fll")
+knifeHolder = NodePath("knife_holder")
+
+[node name="Center" type="Area2D" parent="."]
+position = Vector2(324, 320)
+z_index = 2
+collision_mask = 2
+script = ExtResource("1_eyqt7")
+rotationSpeed = 0.05
+metadata/_edit_lock_ = true
+
+[node name="sprite" type="Sprite2D" parent="Center"]
+texture = ExtResource("1_3f031")
+
+[node name="CollisionShape2d" type="CollisionShape2D" parent="Center"]
+shape = SubResource("CircleShape2D_1t1yw")
+
+[node name="knifes" type="Node2D" parent="Center"]
+z_as_relative = false
+
+[node name="knife_holder" type="Node2D" parent="."]
+position = Vector2(324, 943)
+script = ExtResource("4_6g13x")
+
+[node name="knife" parent="knife_holder" instance=ExtResource("4_cy1l0")]
+speed = -25.0

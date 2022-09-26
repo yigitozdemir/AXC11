@@ -11,12 +11,37 @@ config_version=5
 [application]
 
 config/name="AXC11"
-config/features=PackedStringArray("4.0", "Vulkan Mobile")
+run/main_scene="res://scene/game.tscn"
+config/features=PackedStringArray("4.0", "C#", "Vulkan Mobile")
 config/icon="res://icon.svg"
+
+[display]
+
+window/size/viewport_width=648
+window/size/viewport_height=1152
+window/handheld/orientation=1
+window/stretch/mode="viewport"
 
 [dotnet]
 
 project/assembly_name="AXC11"
+
+[input]
+
+click={
+"deadzone": 0.5,
+"events": [Object(InputEventMouseButton,"resource_local_to_scene":false,"resource_name":"","device":-1,"window_id":0,"alt_pressed":false,"shift_pressed":false,"ctrl_pressed":false,"meta_pressed":false,"button_mask":0,"position":Vector2(0, 0),"global_position":Vector2(0, 0),"factor":1.0,"button_index":1,"pressed":false,"double_click":false,"script":null)
+]
+}
+
+[layer_names]
+
+2d_physics/layer_1="center"
+2d_physics/layer_2="knife"
+
+[physics]
+
+common/physics_ticks_per_second=120
 
 [rendering]
 
